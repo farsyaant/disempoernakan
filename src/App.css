@@ -1,0 +1,236 @@
+/* ============================================================
+   LANDING SCREEN
+   ============================================================ */
+.lobby,
+.lobby *,
+.landing,
+.landing * {
+  cursor: url("/cursor-glove.png") 10 10, auto;
+}
+
+.landing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #8fc8e8 0%, #f5b8c4 45%, #a3c98f 100%);
+}
+
+.landing-box {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 48px 56px;
+  border-radius: 28px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.landing-box h1 {
+  font-family: "Carter One", cursive;
+  font-size: 2.2rem;
+  font-weight: 300;
+  margin: 0 0 8px;
+  color: #9c1f5c;
+  text-stroke: 1.6px rgba(255, 255, 255, 0.85);
+}
+
+.landing-box p {
+  font-family: "Carter One", cursive;
+  margin: 0 0 24px;
+  color: #555;
+}
+
+.enter-btn {
+  font-family: "Carter One", cursive;
+  background: #b6154d;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: url("/cursor-glove.png") 10 10, pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.enter-btn:hover {
+  background: #93123f;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   LOBBY (ganti background-image ini dengan gambar lobby kamu)
+   ============================================================ */
+.lobby {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background-image: url("/lobby-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #7fb8dd;
+  /* fallback kalau gambar belum diisi */
+}
+
+.music-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: url("/cursor-glove.png") 10 10, pointer;
+  z-index: 50;
+}
+
+/* ============================================================
+   FLOATING FLOWERS
+   ============================================================ */
+.flower-field {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+.flower-wrapper {
+  position: absolute;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: url("/cursor-glove.png") 10 10, pointer;
+  animation-name: floaty;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+  animation-iteration-count: infinite;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.2));
+  transition: transform 0.2s ease;
+}
+
+.flower-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes floaty {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  20% {
+    transform: translate(calc(var(--drift-x) * 0.6), -22px) rotate(5deg);
+  }
+
+  40% {
+    transform: translate(calc(var(--drift-x) * 1), -8px) rotate(-4deg);
+  }
+
+  60% {
+    transform: translate(calc(var(--drift-x) * 0.3), -32px) rotate(3deg);
+  }
+
+  80% {
+    transform: translate(calc(var(--drift-x) * -0.8), -14px) rotate(-5deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* Glow yang muncul kalau bunga udah pernah dibuka */
+.flower-glow {
+  position: absolute;
+  inset: -25%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(255, 244, 180, 0.85) 0%,
+      rgba(255, 244, 180, 0.35) 45%,
+      rgba(255, 244, 180, 0) 75%);
+  z-index: -1;
+  animation: pulse-glow 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.flower-opened .flower-img {
+  filter: drop-shadow(0 0 14px rgba(255, 230, 140, 0.9));
+}
+
+/* ============================================================
+   MODAL / CARD (styling mirip desain pink scalloped kamu)
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+  animation: fade-in 0.2s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.card-frame {
+  position: relative;
+  display: inline-flex;
+  max-width: 75vw;
+  max-height: 75vh;
+  animation: pop-in 0.25s ease;
+}
+
+.card-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: url("/cursor-glove.png") 10 10, pointer;
+  z-index: 2;
+}
+
+.card-close:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.card-photo {
+  max-width: 75vw;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
