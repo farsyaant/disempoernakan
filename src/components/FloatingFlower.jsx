@@ -17,10 +17,28 @@ export default function FloatingFlower({ flower, opened, onClick, initialPos }) 
 
   // atur manual per bunga di sini, 1 = normal, >1 = lebih gede, <1 = lebih kecil
   const SIZE_MULTIPLIER = {
+    poerby1: 1.2,
+    poerby2: 1.2,
+    poerby3: 1.2,
+    poerby4: 1.1,
+    poerby5: 1.4,
+    poerby6: 1.3,
+    poerby7: 1.1,
+    poerby8: 1.1,
+    poerby9: 1.1,
+    poerby10: 1.1,
+    poerby11: 1.2,
+    poerby12: 1.1,
+    poerby13: 1.2,
+    poerby14: 1.0,
+    poerby15: 1.0,
+    poerby16: 1.2,
+    adamaurel: 1.1,
+    teknis: 1.4,
   };
 
   const finalSize = size * (SIZE_MULTIPLIER[flower.id] ?? 1);
-  const driftX = 20 + (seed % 30);
+  const driftX = 40 + (seed % 30);
 
   return (
     <button
