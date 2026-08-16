@@ -121,19 +121,19 @@
   }
 
   20% {
-    transform: translate(calc(var(--drift-x) * 0.6), -22px) rotate(5deg);
+    transform: translate(calc(var(--drift-x) * 0.6), -40px) rotate(6deg);
   }
 
   40% {
-    transform: translate(calc(var(--drift-x) * 1), -8px) rotate(-4deg);
+    transform: translate(calc(var(--drift-x) * 1), -15px) rotate(-5deg);
   }
 
   60% {
-    transform: translate(calc(var(--drift-x) * 0.3), -32px) rotate(3deg);
+    transform: translate(calc(var(--drift-x) * 0.3), -55px) rotate(4deg);
   }
 
   80% {
-    transform: translate(calc(var(--drift-x) * -0.8), -14px) rotate(-5deg);
+    transform: translate(calc(var(--drift-x) * -0.8), -25px) rotate(-6deg);
   }
 
   100% {
